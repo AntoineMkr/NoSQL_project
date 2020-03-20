@@ -11,6 +11,8 @@ def fetchNewData(city = 'paris', apiToken = "73a0e30c4dd718ed0c5a327f96f31f5db2d
     r_json = r_json['data']
     tab = []
     tab.append(r_json['time']['s'][0:10].replace("-","/"))
+    if tab[0][5] == '0': 
+        tab[0]=tab[0][:5] + tab[0][6:]
     tab.append(r_json['iaqi']['pm25']['v'])
     tab.append(r_json['iaqi']['pm10']['v'])
     tab.append(r_json['iaqi']['o3']['v'])
